@@ -2,5 +2,21 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/c3p0-0.9.1-pre6.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/c3p0-0.9.1-pre6.src.zip"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/classmate-1.3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/hibernate-commons-annotations-5.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/hibernate-core-5.2.12.Final.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/jandex-2.0.3.Final.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/javassist-3.20.0-GA.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/jboss-common-jdbc-wrapper.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/jboss-common-jdbc-wrapper-src.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/jboss-logging-3.3.0.Final.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/jboss-transaction-api_1.2_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/mysql-connector-java-5.1.44-bin.jar"/>
+	<classpathentry kind="lib" path="E:/Drivers/DriverINGIII/hibernate/alllibs/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
