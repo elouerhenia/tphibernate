@@ -1,8 +1,10 @@
 package isamm.projet.beans;
-// Generated 19 nov. 2017 20:44:16 by Hibernate Tools 5.2.6.Final
+// Generated 19 nov. 2017 22:25:43 by Hibernate Tools 5.2.6.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "matiere", catalog = "bdhibernate_lasttp")
 public class Matiere implements java.io.Serializable {
 
-	private int idMatiere;
+	private Integer idMatiere;
 	private int idPersonne;
 	private String code;
 	private String libelle;
@@ -21,26 +23,25 @@ public class Matiere implements java.io.Serializable {
 	public Matiere() {
 	}
 
-	public Matiere(int idMatiere, int idPersonne) {
-		this.idMatiere = idMatiere;
+	public Matiere(int idPersonne) {
 		this.idPersonne = idPersonne;
 	}
 
-	public Matiere(int idMatiere, int idPersonne, String code, String libelle) {
-		this.idMatiere = idMatiere;
+	public Matiere(int idPersonne, String code, String libelle) {
 		this.idPersonne = idPersonne;
 		this.code = code;
 		this.libelle = libelle;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "idMatiere", unique = true, nullable = false)
-	public int getIdMatiere() {
+	public Integer getIdMatiere() {
 		return this.idMatiere;
 	}
 
-	public void setIdMatiere(int idMatiere) {
+	public void setIdMatiere(Integer idMatiere) {
 		this.idMatiere = idMatiere;
 	}
 

@@ -1,5 +1,5 @@
 package isamm.projet.beans;
-// Generated 19 nov. 2017 20:44:16 by Hibernate Tools 5.2.6.Final
+// Generated 19 nov. 2017 22:25:43 by Hibernate Tools 5.2.6.Final
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;

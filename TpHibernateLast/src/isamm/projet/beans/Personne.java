@@ -1,8 +1,10 @@
 package isamm.projet.beans;
-// Generated 19 nov. 2017 20:44:16 by Hibernate Tools 5.2.6.Final
+// Generated 19 nov. 2017 22:25:43 by Hibernate Tools 5.2.6.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "personne", catalog = "bdhibernate_lasttp")
 public class Personne implements java.io.Serializable {
 
-	private int idPersonne;
+	private Integer idPersonne;
 	private String nom;
 	private String prenom;
 	private String telephone;
@@ -23,12 +25,7 @@ public class Personne implements java.io.Serializable {
 	public Personne() {
 	}
 
-	public Personne(int idPersonne) {
-		this.idPersonne = idPersonne;
-	}
-
-	public Personne(int idPersonne, String nom, String prenom, String telephone, String email, String sexe) {
-		this.idPersonne = idPersonne;
+	public Personne(String nom, String prenom, String telephone, String email, String sexe) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.telephone = telephone;
@@ -37,13 +34,14 @@ public class Personne implements java.io.Serializable {
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "idPersonne", unique = true, nullable = false)
-	public int getIdPersonne() {
+	public Integer getIdPersonne() {
 		return this.idPersonne;
 	}
 
-	public void setIdPersonne(int idPersonne) {
+	public void setIdPersonne(Integer idPersonne) {
 		this.idPersonne = idPersonne;
 	}
 
