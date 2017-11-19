@@ -1,11 +1,14 @@
 package isamm.projet.beans;
-// Generated 19 nov. 2017 20:44:16 by Hibernate Tools 5.2.6.Final
+// Generated 20 nov. 2017 01:22:30 by Hibernate Tools 5.2.6.Final
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,33 +18,55 @@ import javax.persistence.Table;
 @Table(name = "lignematierefiliere", catalog = "bdhibernate_lasttp")
 public class Lignematierefiliere implements java.io.Serializable {
 
-	private LignematierefiliereId id;
+	private Integer idMatfiliere;
+	private Filiere filiere;
+	private Matiere matiere;
 	private Integer masseHoraire;
 
 	public Lignematierefiliere() {
 	}
 
-	public Lignematierefiliere(LignematierefiliereId id) {
-		this.id = id;
+	public Lignematierefiliere(Filiere filiere, Matiere matiere) {
+		this.filiere = filiere;
+		this.matiere = matiere;
 	}
 
-	public Lignematierefiliere(LignematierefiliereId id, Integer masseHoraire) {
-		this.id = id;
+	public Lignematierefiliere(Filiere filiere, Matiere matiere, Integer masseHoraire) {
+		this.filiere = filiere;
+		this.matiere = matiere;
 		this.masseHoraire = masseHoraire;
 	}
 
-	@EmbeddedId
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
-	@AttributeOverrides({
-			@AttributeOverride(name = "idMatiere", column = @Column(name = "idMatiere", nullable = false)),
-			@AttributeOverride(name = "idFiliere", column = @Column(name = "idFiliere", nullable = false)),
-			@AttributeOverride(name = "idMatfiliere", column = @Column(name = "idMatfiliere", nullable = false)) })
-	public LignematierefiliereId getId() {
-		return this.id;
+	@Column(name = "idMatfiliere", unique = true, nullable = false)
+	public Integer getIdMatfiliere() {
+		return this.idMatfiliere;
 	}
 
-	public void setId(LignematierefiliereId id) {
-		this.id = id;
+	public void setIdMatfiliere(Integer idMatfiliere) {
+		this.idMatfiliere = idMatfiliere;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idFiliere", nullable = false)
+	public Filiere getFiliere() {
+		return this.filiere;
+	}
+
+	public void setFiliere(Filiere filiere) {
+		this.filiere = filiere;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idMatiere", nullable = false)
+	public Matiere getMatiere() {
+		return this.matiere;
+	}
+
+	public void setMatiere(Matiere matiere) {
+		this.matiere = matiere;
 	}
 
 	@Column(name = "masseHoraire")

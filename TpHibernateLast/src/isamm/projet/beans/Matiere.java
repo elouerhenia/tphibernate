@@ -1,9 +1,17 @@
 package isamm.projet.beans;
-// Generated 19 nov. 2017 20:44:16 by Hibernate Tools 5.2.6.Final
+// Generated 20 nov. 2017 01:22:30 by Hibernate Tools 5.2.6.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -13,44 +21,46 @@ import javax.persistence.Table;
 @Table(name = "matiere", catalog = "bdhibernate_lasttp")
 public class Matiere implements java.io.Serializable {
 
-	private int idMatiere;
-	private int idPersonne;
+	private Integer idMatiere;
+	private Formateur formateur;
 	private String code;
 	private String libelle;
+	private Set<Lignematierefiliere> lignematierefilieres = new HashSet<Lignematierefiliere>(0);
 
 	public Matiere() {
 	}
 
-	public Matiere(int idMatiere, int idPersonne) {
-		this.idMatiere = idMatiere;
-		this.idPersonne = idPersonne;
+	public Matiere(Formateur formateur) {
+		this.formateur = formateur;
 	}
 
-	public Matiere(int idMatiere, int idPersonne, String code, String libelle) {
-		this.idMatiere = idMatiere;
-		this.idPersonne = idPersonne;
+	public Matiere(Formateur formateur, String code, String libelle, Set<Lignematierefiliere> lignematierefilieres) {
+		this.formateur = formateur;
 		this.code = code;
 		this.libelle = libelle;
+		this.lignematierefilieres = lignematierefilieres;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "idMatiere", unique = true, nullable = false)
-	public int getIdMatiere() {
+	public Integer getIdMatiere() {
 		return this.idMatiere;
 	}
 
-	public void setIdMatiere(int idMatiere) {
+	public void setIdMatiere(Integer idMatiere) {
 		this.idMatiere = idMatiere;
 	}
 
-	@Column(name = "idPersonne", nullable = false)
-	public int getIdPersonne() {
-		return this.idPersonne;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idPersonne", nullable = false)
+	public Formateur getFormateur() {
+		return this.formateur;
 	}
 
-	public void setIdPersonne(int idPersonne) {
-		this.idPersonne = idPersonne;
+	public void setFormateur(Formateur formateur) {
+		this.formateur = formateur;
 	}
 
 	@Column(name = "code", length = 254)
@@ -69,6 +79,15 @@ public class Matiere implements java.io.Serializable {
 
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "matiere")
+	public Set<Lignematierefiliere> getLignematierefilieres() {
+		return this.lignematierefilieres;
+	}
+
+	public void setLignematierefilieres(Set<Lignematierefiliere> lignematierefilieres) {
+		this.lignematierefilieres = lignematierefilieres;
 	}
 
 }

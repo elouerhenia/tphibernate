@@ -1,9 +1,15 @@
 package isamm.projet.beans;
-// Generated 19 nov. 2017 20:44:16 by Hibernate Tools 5.2.6.Final
+// Generated 20 nov. 2017 01:22:30 by Hibernate Tools 5.2.6.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -13,31 +19,32 @@ import javax.persistence.Table;
 @Table(name = "filiere", catalog = "bdhibernate_lasttp")
 public class Filiere implements java.io.Serializable {
 
-	private int idFiliere;
+	private Integer idFiliere;
 	private String code;
 	private String libelle;
+	private Set<Lignematierefiliere> lignematierefilieres = new HashSet<Lignematierefiliere>(0);
+	private Set<Etudiant> etudiants = new HashSet<Etudiant>(0);
 
 	public Filiere() {
 	}
 
-	public Filiere(int idFiliere) {
-		this.idFiliere = idFiliere;
-	}
-
-	public Filiere(int idFiliere, String code, String libelle) {
-		this.idFiliere = idFiliere;
+	public Filiere(String code, String libelle, Set<Lignematierefiliere> lignematierefilieres,
+			Set<Etudiant> etudiants) {
 		this.code = code;
 		this.libelle = libelle;
+		this.lignematierefilieres = lignematierefilieres;
+		this.etudiants = etudiants;
 	}
 
 	@Id
+	@GeneratedValue(strategy = IDENTITY)
 
 	@Column(name = "idFiliere", unique = true, nullable = false)
-	public int getIdFiliere() {
+	public Integer getIdFiliere() {
 		return this.idFiliere;
 	}
 
-	public void setIdFiliere(int idFiliere) {
+	public void setIdFiliere(Integer idFiliere) {
 		this.idFiliere = idFiliere;
 	}
 
@@ -57,6 +64,24 @@ public class Filiere implements java.io.Serializable {
 
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "filiere")
+	public Set<Lignematierefiliere> getLignematierefilieres() {
+		return this.lignematierefilieres;
+	}
+
+	public void setLignematierefilieres(Set<Lignematierefiliere> lignematierefilieres) {
+		this.lignematierefilieres = lignematierefilieres;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "filiere")
+	public Set<Etudiant> getEtudiants() {
+		return this.etudiants;
+	}
+
+	public void setEtudiants(Set<Etudiant> etudiants) {
+		this.etudiants = etudiants;
 	}
 
 }
